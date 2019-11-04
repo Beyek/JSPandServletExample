@@ -1,6 +1,7 @@
 package com.test.dao;
 
 import com.test.beans.Product;
+import com.test.beans.User;
 
 import javax.xml.transform.Result;
 import java.sql.Connection;
@@ -37,4 +38,22 @@ public class ApplicationDao {
 		return products;
 
 	}
+
+    public int registerUser(User user) {
+        int rowsAffected = 0;
+//todo add try...catch block for SQLException handling
+            // todo get the connection for the database
+
+
+            //todo write the insert query
+
+
+            //todo set parameters with PreparedStatement
+
+
+            //todo execute the statement and get the rowAffected
+
+
+        return rowsAffected;
+    }
 }
