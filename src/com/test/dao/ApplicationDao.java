@@ -41,19 +41,29 @@ public class ApplicationDao {
 
     public int registerUser(User user) {
         int rowsAffected = 0;
-//todo add try...catch block for SQLException handling
-            // todo get the connection for the database
 
+        try {
+            // get the connection for the database
+            Connection connection = DBConnection.getConnectionToDatabase();
 
-            //todo write the insert query
+            // write the insert query
+            String insertQuery = "insert into users(username,password,firstname,lastname,age,activity) values(?,?,?,?,?,?)";
 
+            // set parameters with PreparedStatement
+            java.sql.PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setString(1, user.getUsername());
+            statement.setString(2, user.getPassword());
+            statement.setString(3, user.getFirstName());
+            statement.setString(4, user.getLastName());
+            statement.setInt(5, user.getAge());
+            statement.setString(6, user.getActivity());
 
-            //todo set parameters with PreparedStatement
+            // execute the statement
+            rowsAffected = statement.executeUpdate();
 
-
-            //todo execute the statement and get the rowAffected
-
-
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
         return rowsAffected;
     }
 }

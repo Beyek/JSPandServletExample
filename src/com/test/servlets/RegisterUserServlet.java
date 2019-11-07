@@ -22,17 +22,21 @@ public class RegisterUserServlet extends HttpServlet {
 
 		// collect all form data
 		String username = req.getParameter("username");
-
+		String password = req.getParameter("password");
+		String firstName = req.getParameter("fname");
+		String lastName = req.getParameter("lname");
+		String activity = req.getParameter("activity");
+		int age = Integer.parseInt(req.getParameter("age"));
 		
 
 		// fill it up in a User bean
-
+		User user = new User(username, password, firstName, lastName, age, activity);
 		
 		
 
 		// call DAO layer and save the user object to DB
 		ApplicationDao dao = new ApplicationDao();
-		int rows = 0 ; // todo return the rowsAffected from registerUser
+		int rows = dao.registerUser(user);
 		
 
 		// prepare an information message for user about the success or failure of the operation
