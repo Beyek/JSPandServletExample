@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.beans.User;
 import com.test.dao.ApplicationDao;
 
-@WebServlet("/register")
+@WebServlet("/registerUser")
 public class RegisterUserServlet extends HttpServlet {
 
 	@Override

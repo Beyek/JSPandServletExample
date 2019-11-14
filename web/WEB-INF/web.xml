@@ -5,9 +5,17 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
            version="3.1">
 
+    <context-param>
+        <param-name>dbUrl</param-name>
+        <param-value>jdbc:mysql://localhost:8080</param-value>
+    </context-param>
     <servlet>
         <servlet-name>GetServlet</servlet-name>
         <servlet-class>com.test.servlets.GetServlet</servlet-class>
+        <init-param>
+            <param-name>URL</param-name>
+            <param-value>https://www.google.com</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
