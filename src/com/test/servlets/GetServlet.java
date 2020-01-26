@@ -18,9 +18,7 @@ public class GetServlet extends HttpServlet{
 		ServletConfig config = getServletConfig();
 		System.out.println(config.getInitParameter("URL"));
 		ServletContext context = getServletContext();
-		System.out.println(context.getInitParameter("dbUrl"));
-		
-		
+		System.out.println(context.getInitParameter("dbURL"));
 		
 		String htmlResponse = "<html><h3>Welcome to Servlets!</h3></html>";
 		PrintWriter writer = resp.getWriter();

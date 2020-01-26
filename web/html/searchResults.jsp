@@ -1,3 +1,12 @@
+<%@ page import="com.test.beans.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="java.text.SimpleDateFormat"  %>
+<%@ page import="java.util.Date" %>
+<%@ page errorPage="error.jsp" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,34 +16,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-	<header id="home" class="header">
-		<nav class="nav" role="navigation">
-			<div class="container nav-elements">
-				<div class="branding">
-					<a href="home"><img src="images/hpluslogo.svg"
-						alt="Logo - H Plus Sports"></a>
-				</div>
-				<!-- branding -->
-				<ul class="navbar">
-					<li><a href="home">home</a></li>
-					<li><a href="#products">products</a></li>
-					<li><a href="#history">history</a></li>
-					<li><a href="login">login</a></li>
-					<li><a href="#people">people</a></li>
-					<li><a href="#search">search</a></li>
-					<li><a href="register">new user?</a></li>
-					<li><a href="redirect">linkedIn</a></li>
-				</ul>
-				<!-- navbar -->
-			</div>
-			<!-- container nav-elements -->
-		</nav>
-	</header>
-	<!-- #home -->
-
-
-
+<%--<%@ include file="header.jsp" %>--%>
+<jsp:include page="header.jsp">
+	<jsp:param name="prevPage" value="searchResults"/>
+</jsp:include>
 
 	<section id="products" class="section">
 		<div class="container">
@@ -50,23 +35,20 @@
 		</div>
 		<div class="productContainer">
 			<form method="get" action="addProducts">
-
+<%
+	List<Product> products = (ArrayList) request.getAttribute("products");
+	Iterator iterator = products.iterator();
+	while (iterator.hasNext()){
+		Product product = (Product) iterator.next();
+		%>
 				<div class="productContainerItem">
-					<img id="pic1" src="{0}"> <input type="text" name="product"
-						value="{3}"><br />
+					<img id="pic1" src="<%=product.getProductImgPath()%>"> <input type="text" name="product"
+													 value="<%=product.getProductName()%>"><br />
 					<button>Add to Cart</button>
 				</div>
 
+<% }%>
 
-				<div class="productContainerItem">
-					<img id="pic2" src="{1}"> <input type="text" name="product"
-						value="{4}"><br />
-					<button>Add to Cart</button>
-				</div>
-				<div class="productContainerItem">
-					<img id="pic3" src="{2}"> <input type="text" name="product"
-						value="{5}"><br />
-					<button>Add to Cart</button>
 				</div>
 			</form>
 		</div>
@@ -264,6 +246,14 @@
 	<!-- footer -->
 
 
+<%!
+    public String todayDate(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy hh:mm");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
+    %>
 
 
 </body>

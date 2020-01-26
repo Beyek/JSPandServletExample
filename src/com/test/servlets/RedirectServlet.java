@@ -14,7 +14,7 @@ public class RedirectServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//redirect to LinkedIn
-		resp.sendRedirect("https://www.linkedin.com");
+		resp.sendRedirect("http://www.linkedin.com");
 	}
 
 }

@@ -30,7 +30,7 @@ public class RegisterUserServlet extends HttpServlet {
 		
 
 		// fill it up in a User bean
-		User user = new User(username, password, firstName, lastName, age, activity);
+		User user = new User(username, password, firstName, lastName, activity);
 		
 		
 

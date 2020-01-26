@@ -6,14 +6,13 @@ public class User {
 	private String username;
 	private String firstName;
 	private String lastName;
-	private int age;
+
 	private String activity;
-	public User(String username, String password, String firstName, String lastName, int age, String activity) {
+	public User(String username, String password, String firstName, String lastName, String activity) {
 		this.username=username;
 		this.password=password;
 		this.firstName=firstName;
 		this.lastName=lastName;
-		this.age=age;
 		this.activity=activity;
 	}
 	public User() {
@@ -44,12 +43,6 @@ public class User {
 		this.lastName = lastName;
 	}
 	
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
 	public String getActivity() {
 		return activity;
 	}

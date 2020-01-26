@@ -21,6 +21,7 @@
 			        <li><a href="#products">products</a></li>
 			        <li><a href="login">login</a></li>
 			        <li><a href="#people">people</a></li>
+					<li><a href="#search">search</a></li>
 			        <li><a href="register">new user?</a></li>
 		      </ul><!-- navbar -->
 				<%-- 
